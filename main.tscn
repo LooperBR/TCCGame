@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpg4gdbgb6c7g"]
+
+[ext_resource type="Script" path="res://Main.cs" id="1_ajvb0"]
+[ext_resource type="PackedScene" uid="uid://btct0gialt2n1" path="res://player.tscn" id="1_c1wgu"]
+[ext_resource type="PackedScene" uid="uid://bsab83hfmk4lo" path="res://tile_map.tscn" id="2_s7uxb"]
+[ext_resource type="PackedScene" uid="uid://dytcvfa3cd7fr" path="res://hud.tscn" id="4_3guls"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ajvb0")
+
+[node name="Player" parent="." instance=ExtResource("1_c1wgu")]
+position = Vector2(-1, 0)
+
+[node name="Map" parent="." instance=ExtResource("2_s7uxb")]
+
+[node name="HUD" parent="." instance=ExtResource("4_3guls")]
+
+[connection signal="MadeMove" from="Player" to="." method="UpdateGame"]
